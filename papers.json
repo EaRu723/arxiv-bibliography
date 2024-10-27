@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Title:Spatiotemporal Action Recognition in Restaurant Videos",
+    "authors": "Authors:Akshat Gupta, Milan Desai, Wusheng Liang, Magesh Kannan",
+    "abstract": "\n            Abstract:Spatiotemporal action recognition is the task of locating and classifying actions in videos. Our project applies this task to analyzing video footage of restaurant workers preparing food, for which potential applications include automated checkout and inventory management. Such videos are quite different from the standardized datasets that researchers are used to, as they involve small objects, rapid actions, and notoriously unbalanced data classes. We explore two approaches. The first approach involves the familiar object detector You Only Look Once, and another applying a recently proposed analogue for action recognition, You Only Watch Once. In the first, we design and implement a novel, recurrent modification of YOLO using convolutional LSTMs and explore the various subtleties in the training of such a network. In the second, we study the ability of YOWOs three dimensional convolutions to capture the spatiotemporal features of our unique dataset\n    ",
+    "doi": "https://doi.org/10.48550/arXiv.2008.11149"
+  }
+]
