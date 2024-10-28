@@ -5,9 +5,9 @@ import json
 from collections import namedtuple
 
 # Set up the Streamlit page
-st.set_page_config(page_title="W3asy Bib", page_icon="📚")
-st.title("W3asy Bib")
-st.subheader("A Tokenized Bibliography for the Web")
+st.set_page_config(page_title="Arxiv Bibliography", page_icon="📚")
+st.title("Arxiv Bibliography")
+st.subheader("Enter an Arxiv URL to get Title, Authors, Abstract, and DOI")
 
 # Create input field for ArXiv URL
 your_url = st.text_input("Enter URL:", "https://arxiv.org/abs/2008.11149")
