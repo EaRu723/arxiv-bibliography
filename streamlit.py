@@ -9,11 +9,11 @@ import socket
 
 # Set up the Streamlit page
 st.set_page_config(page_title="Arxiv Bibliography", page_icon="📚")
-st.title("Arxiv Bibliography")
-st.subheader("Enter an Arxiv URL to get Title, Authors, Abstract, and DOI")
+st.title("W3asy Bib")
+st.subheader("A tokenized ArXiv bibliography generator.")
 
 # Create input field for ArXiv URL
-your_url = st.text_input("Enter URL:", "https://arxiv.org/abs/2403.00268")
+your_url = st.text_input("Enter an ArXiv URL:", "https://arxiv.org/abs/2403.00268")
 
 # Create a button to trigger the scraping
 if st.button("Let's Go"):
@@ -59,6 +59,7 @@ if st.button("Let's Go"):
                     "abstract": abstract,
                     "doi": arxiv_paper.DOI,
                     "url": your_url,
+                    "token": hashlib.sha256(f"{ip_address}{arxiv_paper.DOI}{current_time}".encode()).hexdigest()
                 }
                 papers.append(paper_dict)
             
@@ -85,11 +86,13 @@ if st.button("Let's Go"):
                 st.markdown("**Token:** " + paper['token'])
                 st.markdown("---")
             
+            
+            safe_title = papers[0]['title'].replace(" ", "_").replace("/", "-")[:50]  # Limit length and make filename safe
             # Add download button for JSON
             st.download_button(
                 label="Download JSON",
                 data=json_output,
-                file_name="papers.json",
+                file_name=f"W3asy_Bib_{safe_title}.json",
                 mime="application/json"
             )
             
